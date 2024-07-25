@@ -3,9 +3,6 @@
 #include <WebServer.h>
 #include <ArduinoJson.h>
 
-#include <WiFiClientSecure.h>
-#include <HTTPClient.h>
-
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/timers.h"
@@ -55,40 +52,6 @@ void read_sensor_data(void * parameter) {
      temperature = am2320.readTemperature();
      humidity = am2320.readHumidity();
      Serial.println("Read sensor data");
-
-      WiFiClientSecure *client = new WiFiClientSecure;
-  if(client) {
-    // set secure client without certificate
-    client->setInsecure();
-    //create an HTTPClient instance
-    HTTPClient https;
-
-    //Initializing an HTTPS communication using the secure client
-    Serial.print("[HTTPS] begin...\n");
-    if (https.begin(*client, "https://www.howsmyssl.com/a/check")) {  // HTTPS
-      Serial.print("[HTTPS] GET...\n");
-      // start connection and send HTTP header
-      int httpCode = https.GET();
-      // httpCode will be negative on error
-      if (httpCode > 0) {
-      // HTTP header has been send and Server response header has been handled
-       Serial.printf("[HTTPS] GET... code: %d\n", httpCode);
-      // file found at server
-        if (httpCode == HTTP_CODE_OK || httpCode == HTTP_CODE_MOVED_PERMANENTLY) {
-          // print server response payload
-          String payload = https.getString();
-          Serial.println(payload);
-        }
-      }
-      else {
-        Serial.printf("[HTTPS] GET... failed, error: %s\n", https.errorToString(httpCode).c_str());
-      }
-      https.end();
-    }
-  }
-  else {
-    Serial.printf("[HTTPS] Unable to connect\n");
-  }
  
      vTaskDelay(60000 / portTICK_PERIOD_MS);
    }
