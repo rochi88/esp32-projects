@@ -9,6 +9,8 @@ Overview
 ESP32C3 SUPERMINI is an IoT mini development board based on the
 Espressif ESP32-C3 WiFi/Bluetooth dual-mode chip.
 
+For more details see the `ESP32C3`_ wiki page.
+
 .. figure:: img/esp32c3_supermini.jpg
    :align: center
    :alt: ESP32C3 SUPERMINI
@@ -214,4 +216,5 @@ References
 
 .. target-notes::
 
+.. _`ESP32C3`: https://www.sudo.is/docs/esphome/boards/esp32c3supermini
 .. _`OpenOCD ESP32`: https://github.com/espressif/openocd-esp32/releases
