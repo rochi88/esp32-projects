@@ -51,9 +51,9 @@ The ESP32C3 SUPERMINI board configuration supports the following hardware featur
 Connections and IOs
 ===================
 
-The board uses a standard XIAO pinout, the default pin mapping is the following:
+The board uses the default pin mapping is the following:
 
-.. figure:: img/esp32c3_supermini_pinout.jpg
+.. figure:: img/esp32c3_supermini_pinout.png
    :align: center
    :alt: ESP32C3 SUPERMINI Pinout
 
