@@ -50,8 +50,6 @@ The ESP32C3 SUPERMINI board configuration supports the following hardware featur
 +-----------+------------+------------------+
 | SPI       | on-chip    | spi_esp32_spim   |
 +-----------+------------+------------------+
-| TWAI      | on-chip    | can_esp32_twai   |
-+-----------+------------+------------------+
 
 Connections and IOs
 ===================

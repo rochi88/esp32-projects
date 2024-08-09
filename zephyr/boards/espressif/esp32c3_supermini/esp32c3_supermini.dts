@@ -20,7 +20,6 @@
 		zephyr,shell-uart = &usb_serial;
 		zephyr,flash = &flash0;
 		zephyr,code-partition = &slot0_partition;
-		zephyr,canbus = &twai;
 		zephyr,bt-hci = &esp32_bt_hci;
 	};
 
