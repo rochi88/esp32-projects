@@ -24,6 +24,23 @@ Pin mappings:
 | 20             | GPIO20       |                                             |
 | 21             | GPIO21       |                                             |
 +----------------+--------------+---------------------------------------------+
+static const uint8_t TX   = 21;
+static const uint8_t RX   = 20;
+
+static const uint8_t SDA  = 8;
+static const uint8_t SCL  = 9;
+
+static const uint8_t SS   = 7;
+static const uint8_t MOSI = 6;
+static const uint8_t MISO = 5;
+static const uint8_t SCK  = 4;
+
+static const uint8_t A0   = 0;
+static const uint8_t A1   = 1;
+static const uint8_t A2   = 2;
+static const uint8_t A3   = 3;
+static const uint8_t A4   = 4;
+static const uint8_t A5   = 5;
 */
 
 /*
@@ -47,12 +64,13 @@ Pin mappings:
   | UART/JTAG download     | HIGH   | HIGH   | LOW    |
   +------------------------+--------+--------+--------+
 */
-
+#define ESP32_RTOS
 
 #define led 8
 
 void setup()
 {
+  Serial.begin(115200);
   pinMode(led, OUTPUT);
 }
 
@@ -60,7 +78,12 @@ void setup()
 void loop()
 {
   digitalWrite(led, HIGH); // Turn the LED LED white
+  float temp_celsius = temperatureRead();
+  Serial.print("Temp onBoard ");
+  Serial.print(temp_celsius);
+  Serial.println("°C");
   delay(2000);
+  
   digitalWrite(led, LOW); // Turn the LED LED off
   delay(2000);
 }
