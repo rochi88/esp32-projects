@@ -2,5 +2,6 @@
 
 ## Used library
 
-- Arduino_JSON
-- TinyGSM
+- [ArduinoJSON](https://github.com/bblanchon/ArduinoJson)
+- [TinyGSM](https://github.com/vshymanskyy/TinyGSM)
+- [StreamDebugger](https://github.com/vshymanskyy/StreamDebugger)
